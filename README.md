@@ -17,7 +17,7 @@
   
   Then open a mongo shell instance by running 'mongo' in other terminal.
   
-  It will connect you to Primary node of the replica set created earlier and prompt should be similar to test:PRIMARY>
+  It will connect you to Primary node of the replica set and prompt should be similar to test:PRIMARY>
   
   Under this propmt run 
   
