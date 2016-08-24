@@ -7,9 +7,9 @@
 
   Insert a test user in the collection `users` similar to 
   
-    `db.users.insert({"username":"*dummy-username*","password":"*dummy-password*"})`
+    `db.users.insert({"username":"dummy-username","password":"dummy-password"})`
     
-###Create another mongoDb database(host it on a different port than the previously created one) and start it as a replica set.
+###Create another mongoDb database(you can host it on a different port than the previously created one) and start it as a replica set.
 
 For a database named `test`, follow the steps below 
 
@@ -33,10 +33,20 @@ For a database named `test`, follow the steps below
     https://docs.mongodb.com/manual/tutorial/deploy-replica-set-for-testing/
 
 ###Create a .env files and add the following
+
   ```
   MONGO_USER_URI= your-user-db-with-collections-'users'-and-'user_daemon'
   MONGO_REPL_URI= your-db-started-as-a-replica-set
   MONGO_OPLOG_URI=mongodb://your-url:port-on-which-replica-set-is-hosted/local
+  PORT=3000
+  ```
+  
+  *For the example above*
+  
+  ```
+  MONGO_USER_URI=mongodb://127.0.0.1:27017/userDb
+  MONGO_REPL_URI=mongodb://127.0.0.1:27017/test
+  MONGO_OPLOG_URI=mongodb://127.0.0.1:27017/local
   PORT=3000
   ```
   
