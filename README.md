@@ -28,9 +28,9 @@ For a database named `test`, follow the steps below
     
   Follow these
   
-    [https://docs.mongodb.com/manual/tutorial/convert-standalone-to-replica-set/](https://docs.mongodb.com/manual/tutorial/convert-standalone-to-replica-set/)
+    https://docs.mongodb.com/manual/tutorial/convert-standalone-to-replica-set/
     
-    [https://docs.mongodb.com/manual/tutorial/deploy-replica-set-for-testing/](https://docs.mongodb.com/manual/tutorial/deploy-replica-set-for-testing/)
+    https://docs.mongodb.com/manual/tutorial/deploy-replica-set-for-testing/
 
 ###Create a .env files and add the following
 
