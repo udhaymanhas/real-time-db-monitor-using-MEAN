@@ -1,0 +1,140 @@
+<div ng-controller="dashboardController">
+    <div class="container" ng-if="loggedIn">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs">
+                    <li ng-class="{active:currentTab(1)}">
+                        <a href ng-click="setTab(1)" title="Student Panel"><span class="glyphicon glyphicon-flash"></span> Dashboard</a>
+                    </li>
+                    <li ng-class="{active:currentTab(2)}">
+                        <a href ng-click="setTab(2)" title="College Panel"><span class="glyphicon glyphicon-cog"></span> Settings</a>
+                    </li>
+                </ul>
+                <div class="panel panel-default notification-panel" ng-show="currentTab(1)">
+                    <div class="notification-div">
+                        <table align="center" class="common notification-header">
+                            <tr>
+                                <td class="time" >Time</td>
+                                <td class="database" >Database</td>
+                                <td class="collection" >Collection</td>
+                                <td class="operation" >Operation</td>
+                                <td class="modification" >Modification</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="notification-div" ng-repeat="notification in notifications">
+                        <table align="center" class="common notification-row">
+                            <tr>
+                                <td class="time" >{{notification.time}}</td>
+                                <td class="database" >{{notification.db}}</td>
+                                <td class="collection" >{{notification.col}}</td>
+                                <td class="operation" >{{notification.op}}</td>
+                                <td class="modification" >
+                                    <table class="modification-table">
+                                        <tr>
+                                            <td ng-repeat="field in notification.doc.fields" >{{field}}</td>
+                                        </tr>
+                                        <tr class="modified-data">
+                                            <td ng-repeat="current in notification.doc.current" >{{current}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!--<table class="table table-dashboard notification" ng-repeat="notification in notifications">-->
+                        <!--<tr>-->
+                            <!--<td>-->
+                                <!--<table class="table table-dashboard">-->
+                                    <!--<tr>-->
+                                        <!--<th>Database</th>-->
+                                        <!--<th>Collection</th>-->
+                                        <!--<th>Operation</th>-->
+                                        <!--<th>Time</th>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td>{{notification.db}}</td>-->
+                                        <!--<td>{{notification.col}}</td>-->
+                                        <!--<td>{{notification.op}}</td>-->
+                                        <!--<td>{{notification.time}}</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<th colspan="4">-->
+                                            <!--Doccument-->
+                                        <!--</th>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<td colspan="4">-->
+                                            <!--<table class="table table-dashboard document" >-->
+                                                <!--<tr>-->
+                                                    <!--<th ng-repeat="field in notification.doc.fields">{{field}}</th>-->
+                                                <!--</tr>-->
+                                                <!--<tr>-->
+                                                    <!--<td ng-repeat="current in notification.doc.current">{{current}}</td>-->
+                                                <!--</tr>-->
+                                                <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<td ng-repeat="previous in notification.doc.previous">{{previous}}</td>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                            <!--</table>-->
+                                        <!--</td>-->
+                                    <!--</tr>-->
+                                <!--</table>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                    <!--</table>-->
+                </div>
+                <div style="padding:10px;" class="panel panel-default notification-settings" ng-show="currentTab(2)" ng-controller="settingsController">
+                    <table class="table">
+                        <tr>
+                            <th>Collection Name</th>
+                            <th>Collection Fields</th>
+                        </tr>
+                        <tr ng-repeat="collection in settings[0].database.collections" >
+                            <form method="post">
+                                <td ng-class="ifSubscribed(collection.name)? 'green-bold' : ''">{{collection.name}}</td>
+                                <td >
+                                    <table class="table">
+                                        <tr>
+                                            <td ng-class="ifSubscribed(collection.name,field)? 'green' : ''" ng-repeat="field in collection.fields" ng-if="field != '_id'">
+                                                <input type="checkbox" ng-if="!ifSubscribed(collection.name,field)" ng-model="subscribeFormData[collection.name][field]" value="field" >{{field}}
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </td>
+                                <td><button class="btn btn-default" ng-click="subscribe(collection.name)" type="submit">Subscribe</button></td>
+                            </form>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" ng-if="!loggedIn">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <form method="post" >
+                    <div class="form-group">
+                        <label for="email">Username:</label>
+                        <input type="text" ng-model="user.username" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" ng-model="user.password" class="form-control" id="pwd">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Remember me</label>
+                    </div>
+                    <button type="submit" ng-click="login(user)" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
