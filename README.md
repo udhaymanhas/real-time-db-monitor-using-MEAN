@@ -4,7 +4,9 @@
 ######Run npm install
 
 ######Create a mongoDb database with collections users and user_daemon. Refer to server/models for schema.
+
   Insert a test user in the collection `users` similar to 
+  
     `db.users.insert({"username":"dummy-username","password":"dummy-password"})`
     
 ######Create another mongoDb database(host it on a different port than the previously created one) and start it as a replica set.
@@ -18,15 +20,19 @@ For a database named `test`, follow the steps below
   It will connect you to Primary node of the replica set created earlier and prompt should be similar to test:PRIMARY>
   
   Under this propmt run 
+  
     ```
     var config = {_id="test", members:[{ _id:0, host: "127.0.0.1:27170"}]}'
     rs.initiate(config)'
     ```
+    
   Follow these
+  
     https://docs.mongodb.com/manual/tutorial/convert-standalone-to-replica-set/
+    
     https://docs.mongodb.com/manual/tutorial/deploy-replica-set-for-testing/
 
-######Create .env files and add the following
+######Create a .env files and add the following
   ```
   MONGO_USER_URI= your-user-db-with-collections-'users'-and-'user_daemon'
   MONGO_REPL_URI= your-db-started-as-a-replica-set
