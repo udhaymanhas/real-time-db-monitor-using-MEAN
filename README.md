@@ -11,9 +11,9 @@
     
 - ###Create another mongoDb database(you can host it on a different port than the previously created one) and start it as a replica set.
 
-For a database named `test`, follow the steps below 
+  For a database named `test`, follow the steps below 
 
-  `mongo --replSet test`
+    `mongo --replSet test`
   
   Then open a mongo shell instance by running 'mongo' in other terminal.
   
@@ -26,11 +26,11 @@ For a database named `test`, follow the steps below
     rs.initiate(config)'
     ```
     
-Follow these
+  Follow these
 
-https://docs.mongodb.com/manual/tutorial/convert-standalone-to-replica-set/
+  https://docs.mongodb.com/manual/tutorial/convert-standalone-to-replica-set/
     
-https://docs.mongodb.com/manual/tutorial/deploy-replica-set-for-testing/
+  https://docs.mongodb.com/manual/tutorial/deploy-replica-set-for-testing/
 
 - ###Create a .env files and add the following
 
