@@ -7,7 +7,7 @@
 
   Insert a test user in the collection `users` similar to 
   
-    `db.users.insert({"username":"dummy-username","password":"dummy-password"})`
+    `db.users.insert({"username":"*dummy-username*","password":"*dummy-password*"})`
     
 ###Create another mongoDb database(host it on a different port than the previously created one) and start it as a replica set.
 
