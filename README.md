@@ -1,7 +1,7 @@
 # real-time-db-monitor-MEAN
 > Real time database updates monitor
 
-#####Run npm install
+####Run npm install
 
 ######Create a mongoDb database with collections users and user_daemon. Refer to server/models for schema.
 
