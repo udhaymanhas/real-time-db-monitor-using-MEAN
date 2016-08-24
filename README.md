@@ -1,5 +1,5 @@
-# real-time-db-monitor-MEAN
-> Real time database updates monitor
+# real-time-db-monitor-using-MEAN
+> Real time database updates monitor using MEAN stack
 
 - ###Run npm install
 
