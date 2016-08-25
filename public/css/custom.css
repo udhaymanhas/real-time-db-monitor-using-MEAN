@@ -26,6 +26,7 @@
 .notification-panel{
     height: 600px;
     overflow-y: auto;
+
 }
 
 .notification-settings{
@@ -34,24 +35,25 @@
 }
 
 .green-bold{
-    color:green;
+    color:#1B5E20;
     font-weight: bold;
 }
 
 .green{
-    color:green;
+    color:#1B5E20;
 }
 
 
 .notification-header{
     width:99.5%;
-    border:1px solid black;
+    border:2px solid black;
 }
 .notification-header tr td{
     text-align: center;
     font-weight: bold;
     font-size: 13px;
-    color:#999999;
+    color:#A1887F;
+    font-family: 'Inconsolata', monospace;
 }
 
 .notification-row {
@@ -62,6 +64,8 @@
 
 .notification-row tr td{
     text-align: center;
+    font-family: 'Inconsolata', monospace;
+    font-size:13px;
 }
 
 .modification-table{
@@ -71,6 +75,12 @@
 
 .modification-table tr td{
     border: 1px solid #e6e6e6;
+    font-family: 'Inconsolata', monospace;
+    font-size:13px;
+}
+
+.modification-table  tr:first-child td{
+    color:#78909C;
 }
 
 .modification-table .modified-data td:first-child{
@@ -85,10 +95,10 @@
     font-size:11px;
 }
 .time{width:15%;}
-.database{width:10%;}
-.collection{width:15%;}
-.operation{width:10%;}
-.modification{width:50%;}
+.database{width:10%;font-weight:bold;}
+.collection{width:15%;color:#283593;font-weight:bold;}
+.operation{width:10%;color:#1B5E20;font-weight:bold;}
+.modification{width:50%;color:#004D40;}
 
 .notification-div{
     width:100%;
