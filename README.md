@@ -13,7 +13,7 @@
 
   For a database named `test`, follow the steps below 
 
-    `mongo --replSet test`
+    `mongod --replSet test`
   
   Then open a mongo shell instance by running 'mongo' in other terminal.
   
